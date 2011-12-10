@@ -9,20 +9,15 @@
 
     $wedding =  strtotime("2012-03-31 04:00:00") ;
     $today = time();
-    $start  = date('Y-m-d H:i:s');
-    $end    = date('Y-m-d H:i:s', $wedding);
-    $d_start    = new DateTime($start);
-    $d_end      = new DateTime($end);
-    $diff = $d_start->diff($d_end);
-    // return all data
-    $difftime = $diff->format('%m months : %d days : %h hours : %i minutes : %s seconds');
-//    $this->year    = $diff->format('%y');
-//    $this->month    = $diff->format('%m');
-//    $this->day      = $diff->format('%d');
-//    $this->hour     = $diff->format('%h');
-//    $this->min      = $diff->format('%i');
-//    $this->sec      = $diff->format('%s');
-    echo $difftime;
+    $diff_seconds = $wedding - $today;
+    $days = floor($diff_seconds / 86400);
+    $htime = $diff_seconds%86400;
+    $hours = floor(($htime)/3600);
+    $mtime = $htime%3600;
+    $minutes = floor($mtime/60);
+    $seconds = $mtime%60;
+
+    echo "$days: days, $hours: hours, $minutes: minutes, $seconds:seconds";
 ?>
 
 <div class="rsvp_form">
