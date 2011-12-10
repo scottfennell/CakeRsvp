@@ -1,0 +1,43 @@
+/* 
+    Document   : style
+    Created on : Nov 6, 2011, 9:01:56 PM
+    Author     : scottf
+    Description:
+        Purpose of the stylesheet follows.
+*/
+h1, h2, h3 {
+
+    font-family: 'Times New Roman',Times,serif;
+    color: #333;
+    background: transparent;
+
+}
+
+.home #container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    margin-top: 50px;
+    background: url(/img/history_parchment.jpg) no-repeat transparent;
+}
+
+.home #content {
+    font-size: 21px;
+    background: transparent;
+    text-align: center;
+}
+
+body.home {
+    background: #c4c4c4;
+    
+}
+
+.home .rsvp_form {
+    text-align: left;
+    padding: 10px;
+    margin-top: 10px;
+    border-top-style: dashed;
+    border-top-width: 2px;
+    border-top-color: #3c3c3c;
+}
