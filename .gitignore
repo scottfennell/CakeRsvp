@@ -5,4 +5,7 @@
 /vendors
 .DS_Store
 tags
-/nbproject/private/
+/nbproject/private/deploy.yml
+cake_rsvp.tar.gz
+dump.sql
+nbproject/*
