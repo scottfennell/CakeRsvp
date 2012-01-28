@@ -1,8 +1,7 @@
-<h2>Scott & Javaneh's Wedding</h2>
-<h3>in</h3>
+
 
 <?php
-/* 
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -17,15 +16,19 @@
     $minutes = floor($mtime/60);
     $seconds = $mtime%60;
 
-    echo "$days: days, $hours: hours, $minutes: minutes, $seconds:seconds";
-?>
 
-<div class="rsvp_form">
-    <p>Please enter your full name here to rsvp for the wedding</p>
-<?php
-    echo $this->Form->create();
-    echo $this->Form->input("name");
-    echo $this->Form->input("email");
-    echo $this->Form->submit();
 ?>
+<div id="homecontent">
+<div class="home_intro aleg">Javaneh Montoya & Scott Fennell</div>
+<div class="home_invitation ital">
+    would like to invite you to join them on March 31st, 2012 at 4 o'clock as they begin the rest of their lives as husband and wife.
+</div>
+
+<div class="wedding_info ital">
+Please join us in <span class="countdown"> <?php echo "$days days, $hours hours, $minutes minutes and $seconds seconds"; ?></span> <br/>
+at the <a href="/pages/info">Kickers Sport Club at 16776 West 50th Ave. Golden, CO</a>
+</div>
+<div class="instructions aleg">
+Please search for you're name on the right to RSVP for the wedding and reception.
+</div>
 </div>

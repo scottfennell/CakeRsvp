@@ -1,0 +1,79 @@
+/* 
+    Document   : cakersvp
+    Created on : Jan 19, 2012, 10:10:55 PM
+    Author     : scottf
+    Description:
+        Styles specific to this
+*/
+
+.mons {
+    font-family: 'Monsieur La Doulaise', cursive;
+}
+
+.aleg {
+    font-family: 'Alegreya SC', serif;
+}
+
+.ital {
+    font-family: 'Italianno', cursive;
+}
+
+.rsvp_form {
+}
+
+#homecontent {
+    text-align: center;
+}
+
+.home_intro {
+    font-size: 2.5em;
+}
+
+.home_invitation {
+    font-size: 40px;
+    sfont-weight: bold;
+    margin-top: 20px;       
+    line-height: 37px;
+}
+
+.wedding_info {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.instructions {
+    margin-top: 35px;
+}
+
+#title, #title a:visited, #title a{
+    color: #177624;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: normal;
+    
+}
+
+#main {
+    background: transparent url('/img/fancy_f.png') no-repeat 0px -60px;
+}
+
+.lcdstyle {
+    background-color:black;
+    color:yellow;
+    font: bold 18px MS Sans Serif;
+    padding: 3px;
+}
+
+.lcdstyle sup{ /*Example CSS to create LCD countdown look*/
+    font-size: 80%
+}
+
+#countdowncontainer {
+    text-align: center;
+    font-size: 1.5em;
+    color:#11330d
+}
+
+#main aside {
+    color: #11330D;
+}

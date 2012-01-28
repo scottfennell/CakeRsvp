@@ -1,46 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		echo $this->Html->css('cake.generic');
-        echo $this->Html->css('style');
+	<title><?php echo $title_for_layout ?></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-		echo $scripts_for_layout;
-	?>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="/css/style.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+SC|Monsieur+La+Doulaise|Italianno' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/cakersvp.css">
+	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
+    <?php		echo $scripts_for_layout;	?>
 </head>
-<body class="home">
-	<div id="container">
-        <div class="nav">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/pages/registry">Registry Info</a></li>
-                <li><a href="/pages/info">Information</a></li>
-                <li><a href="/pages/other">Other Info...</a></li>
-            </ul>
-        </div>
-		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $content_for_layout; ?>
-
-		</div>
-        
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> "Cake Powered", 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
+<body>
+	<div id="header-container">
+		<header class="wrapper clearfix">
+			<h1 id="title" class="mons"><a href="/">Scott & Javaneh's Wedding</a></h1>
+			<nav>
+				<ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/registry">Registry Info</a></li>
+                    <li><a href="/pages/info">Information</a></li>
+				</ul>
+			</nav>
+		</header>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<div id="main-container">
+		<div id="main" class="wrapper clearfix">
+            <article>
+            <?php echo $this->Session->flash(); ?>
+			<?php echo $content_for_layout; ?>
+            </article>
+            <?php if(!isset($noaside) || !$noaside){ ?>
+            <aside>
+                <?php
+                    if(!empty($user)){
+                        echo $this->element("user");
+                    } else {
+                        echo $this->element("rsvp");
+                    }
+                ?>
+			</aside>
+            <?php } ?>
+		</div> <!-- #main -->
+	</div> <!-- #main-container -->
+
+	<div id="footer-container">
+		<footer class="wrapper">			
+            <div id="countdowncontainer" class="ital"></div>
+		</footer>
+	</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="/js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

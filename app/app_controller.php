@@ -7,5 +7,13 @@ class AppController extends Controller {
             'authenticate' => array('Form')
          )
     );
+
+    public function  beforeFilter() {
+        $user = array();
+        if($this->Session->check("user")){
+            $user = $this->Session->read('user');
+        }
+        $this->set('user',$user);
+    }
 }
 ?>
