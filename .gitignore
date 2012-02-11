@@ -9,3 +9,5 @@ tags
 cake_rsvp.tar.gz
 dump.sql
 nbproject/*
+!/app/Config/
+/app/Config/database.php
