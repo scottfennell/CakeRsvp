@@ -20,11 +20,35 @@ class RsvpController extends AppController {
 
         $users = $this->Invite->find('all',array(
             'conditions'=>array(
-                'name LIKE'=>"%".$srch."%"
+                'OR' => array(
+                    'name LIKE'=>"%".$srch."%",
+                    'code'=>$srch
+                )
             )
         ));
 
         $this->set("invites",$users);
+    }
+    
+    public function add() {
+        $this->layout = "home";
+        if(!empty($this->data)){
+            $hash = $this->data['Invite']['test_hash'];
+            $answer = $this->data['Invite']['test'];
+            $invite = $this->data;
+            $invite['Invite']['comments'] = "[User was added via web]\n".var_export($_SERVER,true);
+            $invite['Invite']['uid'] = String::uuid();
+            if(md5($answer) == $hash){
+                if($this->Invite->save($invite)){                    
+                    $id = $this->Invite->getLastInsertID();
+                    $invite = $this->Invite->findById($id);                    
+                    $this->_sendMail($invite);                    
+                    $this->flash("Thanks for RSVPing!", "/rsvp/confirm/{$invite['Invite']['uid']}");
+                }
+            } else {
+                $this->Session->setFlash("Nope, Not Human!");
+            }             
+        }
     }
 
     public function edit($uid) {

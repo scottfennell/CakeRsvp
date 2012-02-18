@@ -49,5 +49,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Invite'), array('action' => 'add')); ?></li>
+                <li><?php echo $this->Html->link(__('Rsvp Cards'), array('action' => 'cards')); ?></li>
 	</ul>
 </div>

@@ -27,7 +27,7 @@
 			<nav>
 				<ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/pages/registry">Registry Info</a></li>
+                    <li><a href="/pages/registry">Registry</a></li>
                     <li><a href="/pages/info">Information</a></li>
 				</ul>
 			</nav>

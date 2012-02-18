@@ -217,4 +217,21 @@ class InvitesController extends AppController {
 		$this->Session->setFlash(__('Invite was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+        
+        public function admin_cards() {
+            App::import('Vendor','bcard');
+            $invites = $this->Invite->find('all');
+            $all = array();
+            foreach($invites as $invite){
+                if(!isset($invite['Invite']['code'])){
+                    $invite['Invite']['code'] = $invite['Invite']['id'];
+                }
+                $invite['Invite']['qrcode'] = $_SERVER['HTTP_HOST']."/".$invite['Invite']['id'];                
+                $this->Invite->save($invite);
+                $all[] = $invite['Invite'];
+            }
+            $bcard = new Bcards($all);
+            $bcard->printcards('inline');            
+            die();
+        }
 }

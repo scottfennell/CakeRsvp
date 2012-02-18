@@ -10,6 +10,9 @@
 		echo $this->Form->input('num_people');
 		echo $this->Form->input('confirmed');
 		echo $this->Form->input('comments');
+                echo $this->Form->input('user_comments');
+                echo $this->Form->input('code');
+                echo $this->Form->input('uid');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

@@ -29,6 +29,6 @@ Please join us in <span class="countdown"> <?php echo "$days days, $hours hours,
 at the <a href="/pages/info">Kickers Sport Club at 16776 West 50th Ave. Golden, CO</a>
 </div>
 <div class="instructions aleg">
-Please search for you're name on the right to RSVP for the wedding and reception.
+Please enter your RSVP code on the right (or your name) to RSVP for the wedding and reception.
 </div>
 </div>
