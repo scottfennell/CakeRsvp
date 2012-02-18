@@ -44,10 +44,19 @@ class Bcards {
         
 
         //draw text
-        $pdf->SetFont('Helvetica','',15);
-        $pdf->Text(3+$x,6+$y, 'RSVP at:');
-        $pdf->SetFont('Helvetica','B',18);
-        $pdf->Text(3+$x,13+$y,'http://scottandjavaneh.us');
+        if(empty($invite['name'])){
+            $pdf->SetFont('Helvetica','',15);
+            $pdf->Text(3+$x,6+$y, 'Please RSVP at:');
+            $pdf->SetFont('Helvetica','B',18);
+            $pdf->Text(3+$x,13+$y,'http://scottandjavaneh.us');
+        }else{
+            $pdf->SetFont('Helvetica','',12);
+            $pdf->Text(3+$x,5+$y, $invite['name'].',');
+            $pdf->SetFont('Helvetica','',8);
+            $pdf->Text(3+$x,8.5+$y, 'please RSVP at:');
+            $pdf->SetFont('Helvetica','B',18);
+            $pdf->Text(3+$x,15+$y,'http://scottandjavaneh.us');
+        }
         $pdf->SetFont('Helvetica','',10);
         $pdf->Text(3+$x,22+$y,'Your RSVP code:');
         $pdf->SetFont('Helvetica','B',35);

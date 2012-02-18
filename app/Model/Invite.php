@@ -28,4 +28,18 @@ class Invite extends AppModel {
 			),
 		),
 	);
+        
+        public function afterSave($created){
+//            if(empty($this->data['Invite']['uid'])){
+//                $this->saveField('uid',String::uuid());
+//            }
+//            if(empty($this->data['Invite']['code'])){
+//                $this->saveField('code',$this->gencode());
+//            }
+            
+        }
+        
+        public function gencode($l = 4){
+            return substr(md5(uniqid(mt_rand(), true)), 0, $l);
+        }
 }
