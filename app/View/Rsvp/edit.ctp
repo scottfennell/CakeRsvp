@@ -12,7 +12,13 @@
 ?>
 
 <h3>Hello, <?php echo $invite['Invite']['name'] ?>!</h3>
-<?php echo $this->Form->input('name', array('type'=>'hidden')); ?>
+<?php
+    if(empty($invite['Invite']['name'])){
+        echo $this->Form->input('name');
+    }else{
+        echo $this->Form->input('name', array('type'=>'hidden'));
+    }
+?>
 <?php echo $this->Form->input('id', array('type'=>'hidden')); ?>
 <?php echo $this->Form->input('uid', array('type'=>'hidden')); ?>
 <?php echo $this->Form->input('confirmed', array('type'=>'hidden', 'value'=>true)); ?>
