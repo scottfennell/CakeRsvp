@@ -664,3 +664,17 @@ p.error em {
 .rsvp_form_container {
     padding-bottom: 20px;
 }
+
+.userssearchres {
+    background: #FAFAFA;
+    padding: 0px;
+    margin: 5px 0px;
+    border: 1px solid gray;    
+    border-left: none;
+    border-right: none;
+}
+
+.userssearchres ul {
+    list-style: none;
+    margin-left: 10px;
+}

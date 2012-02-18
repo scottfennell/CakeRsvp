@@ -1,3 +1,4 @@
+<div class="userssearchres">
 <?php
 if(!empty($invites)){
     echo "<ul>";
@@ -12,7 +13,7 @@ if(!empty($invites)){
     }
     echo "</ul>";
 } else {
-    echo "";
+    echo "Nothing found yet ... ";
 }
-
 ?>
+</div>

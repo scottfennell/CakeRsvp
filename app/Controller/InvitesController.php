@@ -226,12 +226,12 @@ class InvitesController extends AppController {
                 if(!isset($invite['Invite']['code'])){
                     $invite['Invite']['code'] = $invite['Invite']['id'];
                 }
-                $invite['Invite']['qrcode'] = $_SERVER['HTTP_HOST']."/".$invite['Invite']['id'];                
-                $this->Invite->save($invite);
+                $invite['Invite']['qrcode'] = $_SERVER['HTTP_HOST']."/qr/".$invite['Invite']['code'];
                 $all[] = $invite['Invite'];
             }
             $bcard = new Bcards($all);
             $bcard->printcards('inline');            
             die();
         }
+                
 }

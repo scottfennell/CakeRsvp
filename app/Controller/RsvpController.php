@@ -50,6 +50,21 @@ class RsvpController extends AppController {
             }             
         }
     }
+    
+    public function qr($code) {
+        $user = $this->Invite->find('first',array(
+            'conditions'=>array(
+                'code'=>$code
+            )
+        ));
+        
+        if(!empty($user)){
+            $this->redirect('/rsvp/edit/'.$user['Invite']['uid']);
+        }else{
+            $this->Session->setFlash("We couldn't find you!");
+            $this->redirect('/');
+        }
+    }
 
     public function edit($uid) {
         $this->layout = "home";

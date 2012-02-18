@@ -9,6 +9,7 @@
 			<th><?php echo $this->Paginator->sort('num_people');?></th>
 			<th><?php echo $this->Paginator->sort('confirmed');?></th>
 			<th><?php echo $this->Paginator->sort('comments');?></th>
+                        <th><?php echo $this->Paginator->sort('code');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -21,7 +22,8 @@
 		<td><?php echo h($invite['Invite']['address']); ?>&nbsp;</td>
 		<td><?php echo h($invite['Invite']['num_people']); ?>&nbsp;</td>
 		<td><?php echo h($invite['Invite']['confirmed']); ?>&nbsp;</td>
-		<td><?php echo h($invite['Invite']['comments']); ?>&nbsp;</td>
+		<td><?php echo h((strlen($invite['Invite']['comments'])>0)?'[Has Comment]':''); ?>&nbsp;</td>
+                <td><?php echo h($invite['Invite']['code']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $invite['Invite']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $invite['Invite']['id'])); ?>

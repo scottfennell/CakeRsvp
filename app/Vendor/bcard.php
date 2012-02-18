@@ -54,10 +54,7 @@ class Bcards {
         $pdf->Text(10+$x,35+$y,$invite['code']);
         $pdf->SetFont('Helvetica','',9);
         $pdf->Text(3+$x,46+$y,'or scan the QR code on the');
-        $pdf->Text(3+$x,50+$y,'right to RSVP using your phone');
-        
-        
-        
+        $pdf->Text(3+$x,50+$y,'right to RSVP using your phone');        
     }
     
     private function addpage($pdf, $page){        
