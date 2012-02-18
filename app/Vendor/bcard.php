@@ -22,20 +22,20 @@ class Bcards {
     
     private function _printinvite($pdf, $invite, $i){        
         //x and y are the offset for the start of the card        
-        $x=($i % 2)*85 + 20;
-        $y=($i % 5)*54 + 15;
+        $x=($i % 2)*88.5 + 19;
+        $y=($i % 5)*50.6 + 13;
         //draw a crop mark (there will be one 
         //on top of the other for each column 
         //but it doesn't make much difference)
-        $pdf->Line(10,$y,200,$y);
+        //$pdf->Line(10,$y,200,$y);
 
         //add a logo
         $pdf->Image(
            'http://chart.apis.google.com/chart?chf=a,s,000000|bg,lg,90,EFEFEF,0,BBABCF,1&chs=300x300&cht=qr&chld=|1&chl='.$invite['qrcode'],
-            $x+48,
+            $x+53,
             $y+17,
-            35,
-            35,
+            33,
+            33,
             'PNG'
         );
         //set font to arial 10pt and colour to black
@@ -62,8 +62,8 @@ class Bcards {
         $pdf->SetFont('Helvetica','B',35);
         $pdf->Text(10+$x,35+$y,$invite['code']);
         $pdf->SetFont('Helvetica','',9);
-        $pdf->Text(3+$x,46+$y,'or scan the QR code on the');
-        $pdf->Text(3+$x,50+$y,'right to RSVP using your phone');        
+        $pdf->Text(3+$x,44+$y,'or scan the QR code on the');
+        $pdf->Text(3+$x,48+$y,'right to RSVP using your phone');        
     }
     
     private function addpage($pdf, $page){        
@@ -74,12 +74,12 @@ class Bcards {
         $pdf->SetDrawColor($this->text_color);
 
         //vertical crop marks
-        $pdf->Line(105,10,105,290);
-        $pdf->Line(20,10,20,290);
-        $pdf->Line(190,10,190,290);
+        //$pdf->Line(19,10,19,290);
+        //$pdf->Line(19+88.5,10,19+88.5,290);
+        //$pdf->Line(19+(88.5*2),10,19+(88.5*2),290);
 
         //top crop mark (others done with each card)
-        $pdf->Line(10,285,290,285);      
+        //$pdf->Line(10,285,290,285);      
         
         $i = 0;
         foreach($page as $invite){
