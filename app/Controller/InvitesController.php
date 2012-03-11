@@ -138,7 +138,27 @@ class InvitesController extends AppController {
      * @return void
      */
 	public function admin_index() {
-		$this->Invite->recursive = 0;
+		$this->Invite->recursive = 0;        
+        if(!empty($this->data)){
+            $iv = $this->data['Invite'];
+            $conditions = array();
+            /*
+             * Try to auto create conditions based on form input... this will
+             * probably only work for strings though so... 
+             */
+            
+            foreach($iv as $key => $val){
+                $conditions['Invite.'.$key.' LIKE'] = '%'.$val.'%';
+            }
+            
+            $this->paginate = array(
+                'conditions' => $conditions
+            );
+            
+        }
+        $users = $this->Invite->query("SELECT sum(num_people) as snp FROM invites i WHERE i.confirmed=1");
+        $snp = $users[0][0]['snp'];
+        $this->set("snp",$snp);
 		$this->set('invites', $this->paginate());
 	}
 

@@ -9,10 +9,10 @@
 		echo $this->Form->input('address');
 		echo $this->Form->input('num_people');
 		echo $this->Form->input('confirmed');
-		echo $this->Form->input('comments');
-                echo $this->Form->input('user_comments');
-                echo $this->Form->input('code');
-                echo $this->Form->input('uid');
+		echo $this->Form->input('comments',array('between'=>"Your comments, you can use this for things like gifts given, etc"));
+        echo $this->Form->input('user_comments');
+        echo $this->Form->input('code');
+        echo $this->Form->input('uid');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

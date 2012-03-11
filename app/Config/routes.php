@@ -31,7 +31,10 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
         
-        Router::connect('/qr/*', array('controller' => 'rsvp', 'action' => 'qr'));
+    Router::connect('/qr/*', array('controller' => 'rsvp', 'action' => 'qr'));
+    Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+    Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
+    Router::connect('/admin/home', array('controller' => 'invites', 'prefix' => 'admin', 'action' => 'index'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

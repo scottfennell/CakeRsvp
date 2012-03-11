@@ -678,3 +678,9 @@ p.error em {
     list-style: none;
     margin-left: 10px;
 }
+
+.footer_links {
+    text-align: center;
+    font-size: 70%;    
+    color: #363636;
+}

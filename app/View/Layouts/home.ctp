@@ -56,6 +56,11 @@
 	<div id="footer-container">
 		<footer class="wrapper">			
             <div id="countdowncontainer" class="ital"></div>
+            <div class="footer_links">
+                Created by Scott Fennell |
+                <a href='mailto:sj@scottandjavaneh.com'>Email for help</a> |
+                <a href='/admin/home'>Admin</a> 
+            </div>
 		</footer>
 	</div>
 

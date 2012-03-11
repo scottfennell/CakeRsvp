@@ -31,9 +31,14 @@
 			<?php echo h($invite['Invite']['confirmed']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Comments'); ?></dt>
+		<dt><?php echo __('Your Comments'); ?></dt>
 		<dd>
 			<?php echo h($invite['Invite']['comments']); ?>
+			&nbsp;
+		</dd>
+        <dt><?php echo __('User Comments'); ?></dt>
+		<dd>
+			<?php echo h($invite['Invite']['user_comments']); ?>
 			&nbsp;
 		</dd>
 	</dl>
