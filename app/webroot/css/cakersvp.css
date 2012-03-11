@@ -43,6 +43,9 @@
 
 .instructions {
     margin-top: 35px;
+    font-size: 85%;    
+    color: #620137;
+    font-family: 'Times New Roman',Times,serif;
 }
 
 #title, #title a:visited, #title a{

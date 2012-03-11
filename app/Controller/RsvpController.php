@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class RsvpController extends AppController {
 
     var $name = 'Rsvp';
-    var $components = array('Auth', 'Session'); // Not necessary if declared in your app controller
+    var $components = array('Auth', 'Session', 'RequestHandler'); // Not necessary if declared in your app controller
     var $uses = array('Invite');
     
     function beforeFilter() {
@@ -26,8 +26,15 @@ class RsvpController extends AppController {
                 )
             )
         ));
-
-        $this->set("invites",$users);
+        if((count($users) == 1) && ($users[0]['Invite']['code'] == $srch)){
+            $users = $users[0];
+            Configure::write('debug', 0);
+            $this->RequestHandler->respondAs('json');
+            $this->autoRender = false;            
+            echo json_encode($users);            
+        } else {
+            $this->set("invites",$users);
+        }
     }
     
     public function add() {
@@ -83,6 +90,7 @@ class RsvpController extends AppController {
                 $user['Invite']['confirm'] = true;
                 if($this->Invite->save($user)){
                     $this->_sendMail($user);
+                    $this->_sendInviteEmail($user);
                     $this->flash("Thanks for RSVPing!", "/rsvp/confirm/$uid");
                 }
             } else {
@@ -107,15 +115,31 @@ class RsvpController extends AppController {
     }
 
     private function _sendMail($user){
+        return;
         $iv = $user['Invite'];
+        $from = (!empty($iv['email']))?$iv['email']:"sj@scottandjavaneh.us";
         $to      = 'sj@scottandjavaneh.us';
         $subject = $iv['name'].' has RSVPd for your wedding!';
         $message = "{$iv['name']} has RSVPd for your wedding for {$iv['num_people']} with the comment {$iv['user_comments']}";
-        $headers = 'From: sj@scottandjavaneh.us' . "\r\n" .
-            'Reply-To: sj@scottandjavaneh.us' . "\r\n" .
+        $headers = 'From: '.$from . "\r\n" .
+            'Reply-To: '.$from . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
         mail($to, $subject, $message, $headers);
+    }
+    
+    private function _sendInviteEmail($user) {
+        if(!empty($user['Invite']['email'])){
+            
+            $to = $user['Invite']['email'];
+            $subject = "Thank you for RSVPing for our wedding!";
+            $message = "We have recived your RSVP for ".$user['Invite']['num_people'].".\n\n We look forward to seeing you there!\n~Scott & Javaneh";
+            $headers = 'From: sj@scottandjavaneh.us' . "\r\n" .
+                'Reply-To: sj@scottandjavaneh.us' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();            
+            mail($to, $subject, $message, $headers);
+            
+        }
     }
  }
 

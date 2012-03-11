@@ -8,8 +8,15 @@ var search = function(){
         $.ajax({
             url: "/rsvp/search/"+srch,
             success: function(data){
-                console.log('data',data);
-                $('#userlist').html(data);
+                try {
+                    if(data.Invite && data.Invite.uid){
+                        window.location = "/rsvp/edit/"+data.Invite.uid;
+                    } else {
+                        $('#userlist').html(data);
+                    }
+                } catch (e){
+                    $('#userlist').html(data);
+                }
            }
         });
     } else {
@@ -18,11 +25,8 @@ var search = function(){
 }
 
 $(document).ready(function(){
-    console.log("what");
-    
-    $('#usernamesearch').keypress(search);
+    //$('#usernamesearch').keypress(search);
     $("#rsvp_search").click(search);
-    
     var futuredate=new cdtime("countdowncontainer", "March 31, 2012 18:00:00")
     futuredate.displaycountdown("days", formatresults)
 });
